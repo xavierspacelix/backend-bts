@@ -1,0 +1,350 @@
+{
+	"info": {
+		"_postman_id": "8e396bcb-3728-49b8-bfe1-30cb11c061cf",
+		"name": "Api Dokumentasi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33350117"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user1\",\n    \"email\": \"user@example.com\",\n    \"password\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user1\",\n    \"password\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Checklist",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"checklist 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/checklist",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"checklist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Checklist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/checklist",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"checklist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Checklist",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/checklist/6864caf433724c40bdbf442c",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"checklist",
+								"6864caf433724c40bdbf442c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Checklist Item",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Isi formulir kehadiran 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/checklist/6864cf81af18e802cbc5a35f/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"checklist",
+								"6864cf81af18e802cbc5a35f",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail Checlist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/checklist/6864c978d3715eac6621fa02/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"checklist",
+								"6864c978d3715eac6621fa02",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single Item Checklist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/checklist/6864c978d3715eac6621fa02/item/6864cf84af18e802cbc5a362",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"checklist",
+								"6864c978d3715eac6621fa02",
+								"item",
+								"6864cf84af18e802cbc5a362"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Item Checklist",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/checklist/6864c978d3715eac6621fa02/item/6864cf84af18e802cbc5a362",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"checklist",
+								"6864c978d3715eac6621fa02",
+								"item",
+								"6864cf84af18e802cbc5a362"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rename Item Checklist",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"JUAN GANTENG\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/checklist/6864c978d3715eac6621fa02/item/rename/6864d0104f7e90713f91e56a",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"checklist",
+								"6864c978d3715eac6621fa02",
+								"item",
+								"rename",
+								"6864d0104f7e90713f91e56a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status Item",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"completionStatus\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/checklist/6864c978d3715eac6621fa02/item/6864cf84af18e802cbc5a362",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"checklist",
+								"6864c978d3715eac6621fa02",
+								"item",
+								"6864cf84af18e802cbc5a362"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjRiZjY5OGE3M2VhN2ZhN2YyZGRkYyIsImlhdCI6MTc1MTQzNzE2NCwiZXhwIjoxNzUxNDQwNzY0fQ.Q6A_SYNgfax0DlScp_jcV2ZC3aRAVKLoe857wLPpwBM",
+			"type": "string"
+		}
+	]
+}
