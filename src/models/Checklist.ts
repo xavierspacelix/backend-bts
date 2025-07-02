@@ -24,7 +24,7 @@ const ChecklistSchema: Schema = new Schema({
         completionStatus: { type: Boolean, default: false },
       },
     ],
-    default: [], // <-- ini membuat TypeScript yakin items selalu array
+    default: [],
   },
   createdAt: { type: Date, default: Date.now },
 });

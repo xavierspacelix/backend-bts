@@ -1,12 +1,10 @@
 import express from "express";
-import User, { IUser } from "../models/user";
+import User, { IUser } from "../models/User";
 import { AuthRequest } from "../middleware/auth";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
 const router = express.Router();
-
-// Register
 router.post("/register", async (req: AuthRequest, res: express.Response) => {
   try {
     const { username, email, password } = req.body;
@@ -29,7 +27,6 @@ router.post("/register", async (req: AuthRequest, res: express.Response) => {
   }
 });
 
-// Login
 router.post("/login", async (req: AuthRequest, res: express.Response) => {
   try {
     const { username, password } = req.body;

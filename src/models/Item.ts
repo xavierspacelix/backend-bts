@@ -1,5 +1,3 @@
-// models/ItemChecklist.ts
-
 import mongoose, { Schema, Document } from "mongoose";
 
 export interface IItemChecklist extends Document {

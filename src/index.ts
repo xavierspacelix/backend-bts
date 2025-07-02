@@ -8,7 +8,6 @@ const app: Express = express();
 app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/checklist", checklistRouter);
-// MongoDB Connection
 mongoose
   .connect(process.env.MONGO_URI!)
   .then(() => logger.info("Connected to MongoDB"))

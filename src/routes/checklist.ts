@@ -5,14 +5,11 @@ import { AuthRequest } from "../middleware/auth";
 import { authenticateToken } from "../middleware/auth";
 const router = express.Router();
 
-// checklist route
-
 router.get(
   "/",
   authenticateToken,
   async (req: AuthRequest, res: express.Response) => {
     try {
-      // Fetch all checklist with populated itemChecklist
       const checklists = await Checklist.find().populate("items.itemChecklist");
 
       res.status(200).json({
@@ -48,7 +45,7 @@ router.post(
 
       const checklist = new Checklist({
         name,
-        items: items || [], // kalau tidak ada item, jadikan array kosong
+        items: items || [], 
       });
 
       await checklist.save();
@@ -130,7 +127,6 @@ router.get(
         return;
       }
 
-      // Flatten items: keluarkan title dan _id dari itemChecklist
       const items = checklist.items.map((item: any) => {
         const checklistItem = item.itemChecklist?.toObject?.() ?? {};
         return {
@@ -175,11 +171,9 @@ router.post(
         return;
       }
 
-      // 1. Buat item checklist baru
       const newItem = new ItemChecklist({ title: name });
       await newItem.save();
 
-      // 2. Cari checklist, dan pastikan tidak null
       const checklist = await Checklist.findById(checklistId);
 
       if (!checklist) {
@@ -192,7 +186,6 @@ router.post(
         return;
       }
 
-      // Pastikan checklist.items selalu array (secara eksplisit)
       if (!checklist.items) {
         checklist.items = [];
       }
@@ -219,7 +212,6 @@ router.post(
         return;
       }
 
-      // 🔃 Flatten itemChecklist ke dalam items
       const flattenedItems = updatedChecklist.items.map((item: any) => {
         const itemChecklistData =
           typeof item.itemChecklist === "object" &&
@@ -359,7 +351,6 @@ router.patch(
         return;
       }
 
-      // Update status
       item.completionStatus = completionStatus;
       await checklist.save();
 
@@ -409,7 +400,6 @@ router.delete(
         return;
       }
 
-      // Temukan item dalam checklist
       const index = checklist.items.findIndex(
         (item: any) => item.itemChecklist?.toString() === itemId
       );
@@ -424,14 +414,11 @@ router.delete(
         return;
       }
 
-      // Ambil dan simpan ID yang akan dihapus
       const deletedItemId = checklist.items[index].itemChecklist;
 
-      // Hapus dari checklist.items
       checklist.items.splice(index, 1);
       await checklist.save();
 
-      // (Opsional) Hapus dokumen dari koleksi ItemChecklist juga
       await ItemChecklist.findByIdAndDelete(deletedItemId);
 
       res.status(200).json({
@@ -469,8 +456,6 @@ router.patch(
         });
         return;
       }
-
-      // Pastikan checklist ada dan memiliki item itu
       const checklist = await Checklist.findById(checklistId);
 
       if (!checklist) {
@@ -497,7 +482,6 @@ router.patch(
         return;
       }
 
-      // Update title pada koleksi ItemChecklist
       const itemChecklist = await ItemChecklist.findById(itemId);
       if (!itemChecklist) {
         res.status(404).json({
